@@ -169,7 +169,7 @@ def WOABAT(objf,lb,ub,dim,SearchAgents_no,Max_iter,k,points, metric):
                             z[i,:] = Leader_pos[j] + 0.001 * numpy.random.randn(dim)
                         
                         # Evaluate new solutions
-                        fitnessValue, labelsPredValues= objf(startpts, points, k, metric) 
+                        fitnessValue, labelsPredValues= objf(startpts, points, k) 
                         #Fnew = objf(z[i, :])
                         '''
                         # Update if the solution improves
