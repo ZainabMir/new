@@ -87,11 +87,21 @@ def WOABAT(objf,lb,ub,dim,SearchAgents_no,Max_iter,k,points, metric):
             
             # Calculate objective function for each search agent
             startpts = numpy.reshape(Positions[i,:], (k,(int)(dim/k)))
-
-            if objf.__name__ == 'SSE' or objf.__name__ == 'SC' or objf.__name__ == 'DI':
+            # "SSE","TWCV","SC","DB","DI"
+            if objf.__name__ == 'SSE':
+                fitnessValue, labelsPredValues=objf(startpts, points, k, metric)
+            elif objf.__name__ == 'TWCV':
+                fitnessValue, labelsPredValues=objf(startpts, points, k, metric)
+            elif objf.__name__ == 'SC':
+                fitnessValue, labelsPredValues=objf(startpts, points, k, metric) 
+            elif  objf.__name__ == 'DB':
+                fitnessValue, labelsPredValues=objf(startpts, points, k, metric) 
+            elif  objf.__name__ == 'DI':
                 fitnessValue, labelsPredValues=objf(startpts, points, k, metric) 
             else:
                 fitnessValue, labelsPredValues=objf(startpts, points, k) 
+                
+                
                 
             fitness = fitnessValue
             labelsPred[i,:] = labelsPredValues
