@@ -90,8 +90,8 @@ def WOABAT(objf,lb,ub,dim,SearchAgents_no,Max_iter,k,points, metric):
             # "SSE","TWCV","SC","DB","DI"
             if objf.__name__ == 'SSE':
                 fitnessValue, labelsPredValues=objf(startpts, points, k, metric)
-            elif objf.__name__ == 'TWCV':
-                fitnessValue, labelsPredValues=objf(startpts, points, k)
+            #elif objf.__name__ == 'TWCV':
+                #fitnessValue, labelsPredValues=objf(startpts, points, k)
             elif objf.__name__ == 'SC':
                 fitnessValue, labelsPredValues=objf(startpts, points, k, metric) 
             elif  objf.__name__ == 'DB':
