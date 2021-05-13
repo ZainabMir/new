@@ -94,8 +94,8 @@ def WOABAT(objf,lb,ub,dim,SearchAgents_no,Max_iter,k,points, metric):
                 fitnessValue, labelsPredValues=objf(startpts, points, k)
             elif objf.__name__ == 'SC':
                 fitnessValue, labelsPredValues=objf(startpts, points, k, metric) 
-            #elif  objf.__name__ == 'DB':
-                #fitnessValue, labelsPredValues=objf(startpts, points, k) 
+            elif  objf.__name__ == 'DB':
+                fitnessValue, labelsPredValues=objf(startpts, points, k) 
             elif  objf.__name__ == 'DI':
                 fitnessValue, labelsPredValues=objf(startpts, points, k, metric) 
             else:
@@ -147,7 +147,7 @@ def WOABAT(objf,lb,ub,dim,SearchAgents_no,Max_iter,k,points, metric):
                        
                         if random.random() > r:
                             z[i,:] = Leader_pos[j] + 0.001 * numpy.random.randn(dim)
-                            if objf.__name__ == 'TWCV':
+                            if objf.__name__ == 'TWCV' or objf.__name__ == 'DB':
                                 fitnessValue, labelsPredValues=objf(startpts, points, k)
                             else:
                                 fitnessValue,labelsPredValues= objf(startpts, points, k, metric) 
@@ -169,7 +169,7 @@ def WOABAT(objf,lb,ub,dim,SearchAgents_no,Max_iter,k,points, metric):
                         z[i,:] = Positions[i,:] + v[i,:]
                         if random.random() > r:
                             z[i,:] = Leader_pos[j] + 0.001 * numpy.random.randn(dim)
-                        if objf.__name__ == 'TWCV':
+                        if objf.__name__ == 'TWCV' or objf.__name__ == 'DB':
                             fitnessValue, labelsPredValues=objf(startpts, points, k)
                         else:
                             fitnessValue,labelsPredValues= objf(startpts, points, k, metric)     
