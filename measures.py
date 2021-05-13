@@ -149,7 +149,7 @@ def SSE(individual, labelsPred, k, points):
     return fitness
 
 
-def TWCV(individual,labelsPred, k, points):    
+def TWCV(individual, labelsPred, k, points):    
     sumAllFeatures = sum(sum(numpy.power(points,2)))
     sumAllPairPointsCluster = 0
     for clusterId in range(k):
