@@ -147,10 +147,7 @@ def WOABAT(objf,lb,ub,dim,SearchAgents_no,Max_iter,k,points, metric):
                        
                         if random.random() > r:
                             z[i,:] = Leader_pos[j] + 0.001 * numpy.random.randn(dim)
-                            if objf.__name__ == 'TWCV':
-                                fitnessValue,labelsPredValues= objf(startpts, points, k,metric) 
-                            else:
-                                fitnessValue,labelsPredValues= objf(startpts, points, k, metric) 
+                            fitnessValue,labelsPredValues= objf(startpts, points, k, metric) 
                             # Evaluate new solutions
                             #Fnew = objf(z[i, :])
                             '''
